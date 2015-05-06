@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="South African digital research and development specializing in bitcoin, arduino, web technologies and robotics.">
+    <meta name="author" content="bitlab.io">
+
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+    <title>BTCmap</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.min.css">
+    
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="./css/btcmap.css">
+
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+      <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    #map { height: 100%; }
+    </style>
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu" class="">
+
+    <!-- Menu -->
+    <nav class="menu" id="theMenu">
+        <div class="menu-wrap">
+            <h1 class="logo"><a href="http://bitlab.io/btcmap">BTCMAP</a></h1>
+            <i class="fa fa-times menu-close"></i>
+            <a href="http://bitlab.io/" class="smoothScroll"><i class="fa fa-map-marker"></i> ADD</a>
+            <a href="http://bitlab.io/contact" class="smoothScroll"><i class="fa fa-search"></i> SEARCH</a>
+
+        
+        </div>
+
+        <!-- Menu button -->
+        <div id="menuToggle" class=""><i class="fa fa-bars"></i></div>
+    </nav>
+
+ <div id="map"></div>
+
+
+    <!-- Placed at the end of the document so the pages load faster -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/assets/main.js"></script>
+
+<script>
+// create a map in the "map" div, set the view to a given place and zoom
+var map = L.map('map').setView([0, 0], 15);
+// add an OpenStreetMap tile layer
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '<a href="http://osm.org/copyright">osm</a>'
+}).addTo(map);
+// add a marker in the given location, attach some popup content to it and open the popup
+var userMarker = L.marker([0, 0]).addTo(map)
+    .bindPopup('This is you.')
+    .openPopup();
+
+var resize = function () {
+  var h = $( window ).height();
+  console.log(h);
+  $('#map').css('height', h); 
+}
+
+var getLocation = function () {
+    if (navigator.geolocation) {
+        //navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.watchPosition(updatePosition);
+
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+
+function updatePosition(position) {
+  console.log(position);
+  var latlng = [position.coords.latitude, position.coords.longitude]
+  map.setView( latlng );
+  userMarker.setLatLng(latlng);
+    /*x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; */
+}
+
+resize();
+
+$( window ).resize(function() {
+  resize();
+});
+
+$( document ).ready(function() {
+   resize();
+   getLocation();
+});
+
+
+
+
+
+
+</script>
+
+</body></html>

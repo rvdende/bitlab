@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="South African digital research and development specializing in bitcoin, arduino, web technologies and robotics.">
+    <meta name="author" content="bitlab.io">
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <title>{{ post.title }}</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.min.css">
+    
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/css/bitlab.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu" class="">
+
+      <div style="position: absolute;">
+          <h1 class="mainlogo"><a href="http://bitlab.io/" style="color: #000; font-size: 0.75em; margin-left: 0.75em;">bitlab.io</a></h1>
+      </div><!--/row-->
+
+    <!-- Menu -->
+    <nav class="menu" id="theMenu">
+        <div class="menu-wrap">
+            <h1 class="logo"><a href="http://bitlab.io/">BITLAB.io</a></h1>
+            <i class="fa fa-times menu-close"></i>
+            <a href="http://bitlab.io/#home" class="smoothScroll">HOME</a>
+            <a href="http://bitlab.io/contact" class="smoothScroll">CONTACT</a>
+
+            <a href="https://www.behance.net/rouan"><i class="fa fa-behance"></i></a>
+            <a href="https://www.reddit.com/user/rende"><i class="fa fa-reddit"></i></a>
+            <a href="mailto:rouan@8bo.org"><i class="fa fa-envelope"></i></a>
+      <a href="https://www.facebook.com/rouan.za"><i class="fa fa-facebook"></i></a>
+        </div>
+
+        <!-- Menu button -->
+        <div id="menuToggle" class=""><i class="fa fa-bars"></i></div>
+    </nav>
+
+
+
+    <div class="container postholder" style="padding-bottom: 3em; ">
+      <div class="row desc" >
+        <div class="col-sm-8 col-sm-offset-2 ">
+            <h1 style="text-transform: uppercase; color: #000; margin-top: 22px;" >{{ post.title }}</h1>
+            <p  style="font-size: 1.0em; margin-top: 0; padding-top: 0; color: #aaa;">{{ post.formatteddate }} </p>
+            <p  style="font-size: 1.25em; margin-top: 0; padding-top: 0; color: #fff;">{{ post.html|raw }}</p>
+
+            <p  style="font-size: 1.0em; margin-top: 0; padding-top: 0; color: #aaa;">
+            {% for tag in tags %}
+                {% if loop.first %}
+                    Filed under 
+                {% endif %}
+                <a href="/{{ tag.slug }}" style="text-transform: capitalize;">{{ tag.slug }}</a>{% if !loop.last %}, {% endif %} 
+            {% endfor %}
+                </p>
+       </div>
+      </div><!--/row-->
+    </div><!-- /.container -->
+
+
+<div style="background: rgb(33,33,33); width:100%; padding-top: 3em; padding-bottom: 3em;" >
+    <div class="container" >
+          <div class="row">
+            <div class="col-md-8 col-sm-offset-2">
+
+                
+
+                    {% for post in relposts %}
+                        {% if loop.first %}
+                            <p  style="font-size: 1.0em; margin-top: 0; padding-top: 0; color: #fff;">
+                                RELATED POSTS
+                            </p>
+                        {% endif %}
+                            <p  style="font-size: 1.0em; margin: 0; padding-top: 0; color: #aaa;"><a href="/{{ post.slug }}">{{ post.title }}</a> {{ post.formatteddate }}</p>
+                    {% endfor %}
+            </div>
+          </div><!--/row-->
+    </div>
+</div>
+
+<div id="contactwrap" style="padding-top: 3em; background: rgb(42,42,42);">
+  <div class="container">
+    <div class="row centered">
+        <a href="bitcoin:1EZ6S8YqfxzfMKCCtpzKeEJW1qMthQnCuD?message=bitlab" target="_blank">
+          <img src="/assets/wallet.png" height="101px">
+          <br><br><span style="font-size: 1em; color: #eee; ">1EZ6S8YqfxzfMKCCtpzKeEJW1qMthQnCuD</span><br>
+        </a>
+        <a href="http://bitx.co/" target="_blank"><img src="/assets/BC_Logo_-sml.png" width="32" height="32" style="margin-top: 2em; margin-bottom: 5em;"></a> 
+    </div>
+  </div><!-- /container -->
+</div>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/assets/main.js"></script>
+
+</body></html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HandShake - Construction Professional Network</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/slider.css" rel="stylesheet">
+    <link href="/css/handshake.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <link href="css/custom.css?v=1.0.2" rel="stylesheet">
+  <link href="skins/all.css?v=1.0.2" rel="stylesheet">
+  
+  <script src="/js/jquery.min.js">  </script>
+  
+  <script src="icheck.js?v=1.0.2"></script>
+  <script src="js/custom.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/css/pure-min.css">
+
+
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              <a class="navbar-brand page-scroll " href="#page-top" ><span style='color: #fff; font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700;'>HANDSHAKE</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li >
+                        <a class="page-scroll" href="/">Home</a>
+                    </li>                    
+
+                    <li>
+                        <a class="page-scroll" href="/form">Form</a>
+                    </li>
+
+                    <li class="active">
+                        <a class="page-scroll" href="/search">Search</a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" href="/signout">Signout</a>
+                    </li>
+                                 
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <section id="features" style="display: none;">
+         <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-subheading text-muted"><span class="fa-stack fa-4x">
+                        <i class="fa fa-search fa-stack-2x "></i>
+                    </span>Coming soon...</h3>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="searchresultsection" style="display: none;">
+         <div class="container" style="margin: 0 auto; max-width: 700px; padding: 1em;">
+            <h2 class="section-heading" id="resultheading">Search Results</h2>
+            <div id="searchresults"></div>            
+        </div>
+    </section>
+
+   <section id="form" >
+
+        <div style="margin: 0 auto; max-width: 700px; padding: 1em;">
+            <h2 class="section-heading" id="heading">Search <span style="font-size: 0.5em;">beta</span></h2>
+            <form class="pure-form pure-form-stacked">
+                <fieldset>
+
+                    <div class="pure-g">
+
+                        <div class="pure-u-1 pure-u-md-1-2" style="margin-top: 1em;">
+                            <label>PREFERRED WORK LOCATION</label>
+                            <select id="location" class="pure-input-1" >
+                                <option>{{ form.location }}</option>
+                                <option>All locations</option>
+                                <option>AUSTRALIA</option>
+                                <option>Regional NSW</option>
+                                <option>VIC</option>
+                                <option>QLD</option>
+                                <option>WA</option>
+                                <option>SA</option>
+                                <option>TAS</option>
+                                <option>ACT</option>
+                                <option>NT</option>
+                                <option>Mayor Cities  </option>
+                                <option>Sydney</option>
+                                <option>Melbourne</option>
+                                <option>Brisbane</option>
+                                <option>Gold Coast</option>
+                                <option>Perth</option>
+                                <option>Adelaide</option>
+                                <option>Hobart</option>
+                                <option>Darwin</option>
+                                <option>Cairns</option>
+                                <option>Ballcrat</option>
+                                <option>Geelong</option>
+                                <option>Townsville</option>
+                                <option>Albury</option>
+                                <option>Bendigo</option>
+                                <option>Launceston</option>
+                                <option>Sunshine Coast</option>
+                                <option>Toowoomba</option>
+                                <option>Woollongong</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+
+
+
+                        <!-- -->
+
+                        <div class="pure-u-1" style="margin-top: 1em;">
+                            <label>SKILL LEVEL</label>
+                        </div>
+
+                        <div class="pure-u-1" id="experience">
+
+                            <label for="option-two" class="pure-radio">
+                                <input id="option-two" type="radio" name="experience" value="trainee" 
+                                {% if form.experience == "trainee" %}
+                                    checked
+                                {% endif %} 
+                                >
+                                Trainee
+                            </label>
+
+                            <label for="option-three" class="pure-radio">
+                                <input id="option-three" type="radio" name="experience" value="experienced" 
+                                {% if form.experience == "experienced" %}
+                                    checked
+                                {% endif %}
+                                >
+                                Experienced
+                            </label>                        
+                        </div>
+
+                        <!-- -->
+
+                        <div class="pure-u-1" style="margin-top: 1em;">
+                            <label>EQUIPMENT OPERATED?</label>
+                        </div>
+
+                        <div class="pure-u-1">
+
+
+                            <label for="option-one" class="pure-checkbox">
+
+                                <input id="eq1" type="checkbox" value="1" {% if form.equipment.frontendloader == "true" %}checked{% endif %}>
+                                Front end loader
+                            </label>
+
+                            <label for="option-one" class="pure-checkbox">
+                                <input id="eq2" type="checkbox" value="2" {% if form.equipment.excavator == "true" %}checked{% endif %}>
+                                Excavator
+                            </label>
+
+                            <label for="option-one" class="pure-checkbox">
+                                <input id="eq3" type="checkbox" value="3" {% if form.equipment.skidsteerloader == "true" %}checked{% endif %}>
+                                Skid steer loader
+                            </label>
+
+                            <label for="option-one" class="pure-checkbox">
+                                <input id="eq4" type="checkbox" value="4" {% if form.equipment.backhoeloader == "true" %}checked{% endif %}>
+                                Back hoe loader
+                            </label>
+                     
+                        </div>
+
+
+
+
+                        
+
+
+
+
+
+
+
+
+
+</div>
+<button id="search" type="button" class="pure-button pure-button-primary" style="padding: 1em; margin: 1em 0 1em 0; text-transform: uppercase;"><i class="fa fa-search "></i> View Results</button>
+</fieldset>
+</form>
+</div>     
+</section>   
+
+
+<style>
+
+.bigbuttons div {
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.bigbuttons:hover div {
+    background: #3498db;
+    color: #fff;
+}
+
+.bigbuttons:hover div span i {
+    color: #fff;
+}
+
+.bigbuttons:hover div p {
+    color: #fff;
+}
+
+</style>
+
+
+
+ <script>
+    
+    $(document).ready(function(){
+        console.log("test");    
+        
+        //SIGNUP
+        var search = {};
+
+        $("#search").click(function(){
+
+            if (($("#location").val() == '')||($("#location").val() == 'All locations')) {
+                
+            } else { search.location=$("#location").val(); }
+          
+
+
+          search.experience=$('input[name=experience]:checked', '#experience').val()
+          
+          search.equipment = {};
+            if ($('#eq1').prop('checked') == true) {
+              search.equipment.frontendloader = $('#eq1').prop('checked');
+            }
+          
+            if ($('#eq2').prop('checked') == true) {
+                search.equipment.excavator = $('#eq2').prop('checked');      
+            }
+          
+          if ($('#eq3').prop('checked') == true) {
+            search.equipment.skidsteerloader = $('#eq3').prop('checked');  
+          }
+
+          if ($('#eq4').prop('checked') == true) {
+            search.equipment.backhoeloader = $('#eq4').prop('checked');            
+          }
+          
+          
+         
+          $.post("/search", search, function(resp){
+            console.log(resp);
+
+            if(resp.status ==='success')
+              {
+
+                $("#searchresultsection").show();
+                
+                for (var i in resp.data) {
+                    $("#searchresults").append(resp.data[i].email);
+                    try {
+                        $("#searchresults").append(" "+resp.data[i].form.firstname); 
+                        $("#searchresults").append(" "+resp.data[i].form.lastname); 
+                    }
+                    catch (err) {}
+                    $("#searchresults").append("<br>");
+                }
+
+                $("#resultheading").html(resp.data.length+" FOUND")
+
+                $("#message").html('Success');
+                $("#form").hide();
+              }
+
+
+          });
+            
+        });
+        //SIGNUP END
+    });
+</script>
+
+    <!-- jQuery -->
+    
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+    <!-- Custom Theme JavaScript -->
+
+    
+ <script>
+
+
+        $('.slider').slider();
+
+        $(document).ready(function(){
+
+          $(".navbar-toggle").click(function() {
+            console.log("click!")
+          })
+       
+
+
+
+  
+        
+     
+     });
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HandShake - Construction Professional Network</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/slider.css" rel="stylesheet">
+    <link href="/css/handshake.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <link href="css/custom.css?v=1.0.2" rel="stylesheet">
+  <link href="skins/all.css?v=1.0.2" rel="stylesheet">
+  
+  <script src="/js/jquery.min.js">  </script>
+  
+  <script src="icheck.js?v=1.0.2"></script>
+  <script src="js/custom.min.js?v=1.0.2"></script>
+  
+  <link rel="stylesheet" href="/css/pure-min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+
+
+</head>
+
+<body id="page-top" class="index" style="background: #fff;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink" style="position: absolute;">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll " href="/" ><span style='color: #fff; font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700;'>bitlab.io</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li >
+                        <a class="page-scroll" href="/">Home</a>
+                    </li>                    
+
+                    <li>
+                        <a class="page-scroll" href="/services">services</a>
+                    </li>
+                  
+                    <li>
+                        <a class="page-scroll" href="/contact">contact</a>
+                    </li>
+                                 
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+
+
+    <section id="features" style="background: #fff; padding-top: 0em; padding-bottom: 3em;" >
+         <div class="container" style="margin-top: 3em;">
+
+           
+
+
+    <div class="row text-center" style="padding-top:6em;">
+        <h2 class="section-heading" id="heading">ERROR</h2>
+         <p>Something has gone wrong! Go <a href="/">home</a> and try again.</p>
+    </div>
+
+           
+        </div>
+    </section>
+
+
+
+
+
+   
+
+<style>
+
+.bigbuttons div {
+    border-radius: 0.5em;
+    text-decoration: none;
+}
+
+.bigbuttons:hover div {
+    background: #333;
+    text-decoration: none;
+}
+
+.bigbuttons:hover div span i {
+    color: #fff;
+    text-decoration: none;
+}
+
+.bigbuttons:hover div p {
+    color: #fff;
+    text-decoration: none;
+}
+
+</style>
+
+
+
+ <script>
+    
+    $(document).ready(function(){
+        console.log("test");    
+        
+        //SIGNUP
+        var signup = {};
+
+        $("#submit").click(function(){
+          console.log("asdasd")
+
+          signup.email=$("#email").val();
+          signup.pass=$("#password").val();
+          
+         
+          $.post("http://localhost:3000/signin", signup, function(data){
+            
+            if(data==='notfound')
+              {
+                $("#message").html('Email or password incorrect. Please try again.');
+                $("#message").show();
+              }
+
+            if(data==='success')
+              {
+                $("#message").html('Success');
+                $("#message").show();
+              }
+
+
+          });
+            
+        });
+        //SIGNUP END
+    });
+</script>
+
+    <!-- jQuery -->
+    
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+    <!-- Custom Theme JavaScript -->
+
+    
+ <script>
+
+
+        $('.slider').slider();
+
+        $(document).ready(function(){
+
+          $(".navbar-toggle").click(function() {
+            console.log("click!")
+          })
+       
+
+
+
+  
+        
+     
+     });
+
+    </script>
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HandShake - Construction Professional Network</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/slider.css" rel="stylesheet">
+    <link href="/css/handshake.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <link href="css/custom.css?v=1.0.2" rel="stylesheet">
+  <link href="skins/all.css?v=1.0.2" rel="stylesheet">
+  
+  <script src="/js/jquery.min.js">  </script>
+  
+  <script src="icheck.js?v=1.0.2"></script>
+  <script src="js/custom.min.js?v=1.0.2"></script>
+
+
+  <link rel="stylesheet" href="/css/pure-min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand page-scroll " href="#page-top" ><span style='color: #fff; font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700;'>HANDSHAKE</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li >
+                        <a class="page-scroll" href="/">Home</a>
+                    </li>                    
+
+                    <li class="active">
+                        <a class="page-scroll" href="/form">Form</a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" href="/search">Search</a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" href="/signout">Signout</a>
+                    </li>
+                                 
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+    <section id="form" >
+
+        <div style="margin: 0 auto; max-width: 700px; padding: 1em;">
+
+       
+            <h2 class="section-heading" id="heading">EDIT</h2>
+            <form class="pure-form pure-form-stacked">
+             
+
+                <fieldset>
+
+                    <div class="pure-g">
+
+                        <div class="pure-u-1">
+                            <label>NAME</label>
+                        </div>
+
+                        <div class="pure-u-1 pure-u-md-1-2">
+                            <input id="firstname" class="pure-u-23-24" type="text" placeholder="First" value="{{ form.firstname }}">
+                        </div>
+
+                        <div class="pure-u-1 pure-u-md-1-2">
+                            <input id="lastname" class="pure-u-23-24" type="text" placeholder="Last" value="{{ form.lastname }}">
+                        </div>
+
+                        <div class="pure-u-1 pure-u-md-1-2" style="margin-top: 1em;">
+                            <label>PREFERRED WORK LOCATION</label>
+                            <select id="location" class="pure-input-1" >
+                                <option>{{ form.location }}</option>
+                                <option>All locations</option>
+                                <option>AUSTRALIA</option>
+                                <option>Regional NSW</option>
+                                <option>VIC</option>
+                                <option>QLD</option>
+                                <option>WA</option>
+                                <option>SA</option>
+                                <option>TAS</option>
+                                <option>ACT</option>
+                                <option>NT</option>
+                                <option>Mayor Cities  </option>
+                                <option>Sydney</option>
+                                <option>Melbourne</option>
+                                <option>Brisbane</option>
+                                <option>Gold Coast</option>
+                                <option>Perth</option>
+                                <option>Adelaide</option>
+                                <option>Hobart</option>
+                                <option>Darwin</option>
+                                <option>Cairns</option>
+                                <option>Ballcrat</option>
+                                <option>Geelong</option>
+                                <option>Townsville</option>
+                                <option>Albury</option>
+                                <option>Bendigo</option>
+                                <option>Launceston</option>
+                                <option>Sunshine Coast</option>
+                                <option>Toowoomba</option>
+                                <option>Woollongong</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+
+
+
+                        <!-- -->
+
+                        <div class="pure-u-1" style="margin-top: 1em;">
+                            <label>DO YOU CLASSIFY YOURSELF</label>
+                        </div>
+
+                        <div class="pure-u-1" id="experience">
+
+                            <label for="option-two" class="pure-radio">
+                                <input id="option-two" type="radio" name="experience" value="trainee" 
+                                {% if form.experience == "trainee" %}
+                                    checked
+                                {% endif %} 
+                                >
+                                Trainee
+                            </label>
+
+                            <label for="option-three" class="pure-radio">
+                                <input id="option-three" type="radio" name="experience" value="experienced" 
+                                {% if form.experience == "experienced" %}
+                                    checked
+                                {% endif %}
+                                >
+                                Experienced
+                            </label>                        
+                        </div>
+
+                        <!-- -->
+
+                        <div class="pure-u-1" style="margin-top: 1em;">
+                            <label>EQUIPMENT OPERATED?</label>
+                        </div>
+
+                        <div class="pure-u-1">
+
+
+                            <label for="option-one" class="pure-checkbox">
+
+                                <input id="eq1" type="checkbox" value="1" {% if form.equipment.frontendloader == "true" %}checked{% endif %}>
+                                Front end loader
+                            </label>
+
+                            <label for="option-one" class="pure-checkbox">
+                                <input id="eq2" type="checkbox" value="2" {% if form.equipment.excavator == "true" %}checked{% endif %}>
+                                Excavator
+                            </label>
+
+                            <label for="option-one" class="pure-checkbox">
+                                <input id="eq3" type="checkbox" value="3" {% if form.equipment.skidsteerloader == "true" %}checked{% endif %}>
+                                Skid steer loader
+                            </label>
+
+                            <label for="option-one" class="pure-checkbox">
+                                <input id="eq4" type="checkbox" value="4" {% if form.equipment.backhoeloader == "true" %}checked{% endif %}>
+                                Back hoe loader
+                            </label>
+                     
+                        </div>
+
+                        <div class="pure-u-1">
+                            <h1>Tickets</h1>
+                        </div>
+
+
+                        
+
+
+
+
+<div class="pure-u-1 pure-u-md-1-2">
+        <div class="element-checkbox"><label class="title"><h2>Heavy Vehicles</h2></label>       
+            <div class="column column1">
+                <label><input id="ti1" type="checkbox" name="checkbox1[]" value="Medium Rigid (MR)"
+                {% if form.tickets.hvmr == "true" %}checked{% endif %}>
+                Medium Rigid (MR)</label>
+
+                <label><input id="ti2" type="checkbox" name="checkbox1[]" value="1 Day MR Course (6 hours)"
+                {% if form.tickets.hv1dmrc == "true" %}checked{% endif %}>
+                1 Day MR Course (6 hours)</label>
+
+                <label><input id="ti3" type="checkbox" name="checkbox1[]" value="Heavy Rigid"
+                {% if form.tickets.hvhr == "true" %}checked{% endif %}>
+                Heavy Rigid</label>
+
+                <label><input id="ti4" type="checkbox" name="checkbox1[]" value="Heavy Combination (HC)"
+                {% if form.tickets.hvhc == "true" %}checked{% endif %}>
+                Heavy Combination (HC)</label>
+
+                <label><input id="ti5" type="checkbox" name="checkbox1[]" value="Multi-Combination (HC)"
+                {% if form.tickets.hvmchc == "true" %}checked{% endif %}>
+                Multi-Combination (HC)</label>
+
+                <label><input id="ti6" type="checkbox" name="checkbox1[]" value="Multi-Combination (HC - MC)"
+                {% if form.tickets.hvhcmc == "true" %}checked{% endif %}>
+                Multi-Combination (HC - MC)</label>
+
+                <label><input id="ti7" type="checkbox" name="checkbox1[]" value="MC Assessment"
+                {% if form.tickets.hvmcass == "true" %}checked{% endif %}>
+                MC Assessment</label>
+
+                <label><input id="ti8" type="checkbox" name="checkbox1[]" value="Pre employment Assessment (VOC)"
+                {% if form.tickets.hvpea == "true" %}checked{% endif %}>
+                Pre employment Assessment (VOC)</label>
+
+                <label><input id="ti9" type="checkbox" name="checkbox1[]" value="QTBF"
+                {% if form.tickets.hvqtbf == "true" %}checked{% endif %}>
+                QTBF</label></div>
+
+                <span class="clearfix">
+            </div>
+        </div>
+
+
+
+<div class="pure-u-1 pure-u-md-1-2">
+    <div class="element-checkbox"><label class="title"><h2>Loadshifting</h2></label>     
+        <div class="column column1">
+            <label><input id="ti10" type="checkbox" name="checkbox2[]" value="Roller/Compactor Civil RII (2 days)"
+            {% if form.tickets.lsroll == "true" %}checked{% endif %}>
+            Roller/Compactor Civil RII (2 days)</label>
+
+            <label><input id="ti11" type="checkbox" name="checkbox2[]" value="Skidsteer Civil RII"
+            {% if form.tickets.lsskid == "true" %}checked{% endif %}>
+            Skidsteer Civil RII</label>
+
+            <label><input id="ti12" type="checkbox" name="checkbox2[]" value="Bulldozer Civil RII"
+            {% if form.tickets.lsbull == "true" %}checked{% endif %}>
+            Bulldozer Civil RII</label>
+
+            <label><input id="ti13" type="checkbox" name="checkbox2[]" value="Backhoe Civil RII"
+            {% if form.tickets.lsback == "true" %}checked{% endif %}>
+            Backhoe Civil RII</label>
+
+            <label><input id="ti14" type="checkbox" name="checkbox2[]" value="Front End Loader Civil RII"
+            {% if form.tickets.lsfrnt == "true" %}checked{% endif %}>
+            Front End Loader Civil RII</label>
+
+            <label><input id="ti15" type="checkbox" name="checkbox2[]" value="Excavator Civil RII"
+            {% if form.tickets.lsexca == "true" %}checked{% endif %}>
+            Excavator Civil RII</label>
+
+            <label><input id="ti16" type="checkbox" name="checkbox2[]" value="Grader Civil RII"
+            {% if form.tickets.lsgrad == "true" %}checked{% endif %}>
+            Grader Civil RII</label>
+
+            <label><input id="ti17" type="checkbox" name="checkbox2[]" value="Dump/Haul Truck"
+            {% if form.tickets.lsdump == "true" %}checked{% endif %}>
+            Dump/Haul Truck</label>
+
+            <label><input id="ti18" type="checkbox" name="checkbox2[]" value="Verification of Competency (VOC)"
+            {% if form.tickets.lsvoc == "true" %}checked{% endif %}>
+            Verification of Competency (VOC)</label>
+
+            <label><input id="ti19" type="checkbox" name="checkbox2[]" value="Day Rate &amp; for (VOC)"
+            {% if form.tickets.lsvocd == "true" %}checked{% endif %}>
+            Day Rate &amp; for (VOC)</label>
+
+            <label><input id="ti20" type="checkbox" name="checkbox2[]" value="RII (mining)"
+            {% if form.tickets.lsrii == "true" %}checked{% endif %}>
+            RII (mining)</label></div><span class="clearfix">
+        </div>
+    </div>
+
+
+
+
+<div class="pure-u-1 pure-u-md-1-2">
+    <div class="element-checkbox"><label class="title"><h2>High Risk</h2></label>        
+        <div class="column column1">
+            <label><input id="ti21" type="checkbox" name="checkbox3[]" value="Forklift" 
+             {% if form.tickets.hrfork == "true" %}checked{% endif %}>
+            Forklift</label>
+
+            <label><input id="ti22" type="checkbox" name="checkbox3[]" value="Order Picker" 
+             {% if form.tickets.hrorder == "true" %}checked{% endif %}>
+            Order Picker</label>
+
+            <label><input id="ti23" type="checkbox" name="checkbox3[]" value="Forklift &amp; Order Picker Combo" 
+             {% if form.tickets.hrforkl == "true" %}checked{% endif %}>
+            Forklift &amp; Order Picker Combo</label>
+
+            <label><input id="ti24" type="checkbox" name="checkbox3[]" value="EWP over 11 meters - 3 days" 
+             {% if form.tickets.hrewp == "true" %}checked{% endif %}>
+            EWP over 11 meters - 3 days</label>
+
+            <label><input id="ti25" type="checkbox" name="checkbox3[]" value="Scissor Lift/EWP under 11 meters - 1 day" 
+             {% if form.tickets.hrsc == "true" %}checked{% endif %}>
+            Scissor Lift/EWP under 11 meters - 1 day</label>
+
+            <label><input id="ti26" type="checkbox" name="checkbox3[]" value="Dogging" 
+             {% if form.tickets.hrdog == "true" %}checked{% endif %}>
+            Dogging</label>
+
+            <label><input id="ti27" type="checkbox" name="checkbox3[]" value="Basic Rigging" 
+             {% if form.tickets.hrbrig == "true" %}checked{% endif %}>
+            Basic Rigging</label>
+
+            <label><input id="ti28" type="checkbox" name="checkbox3[]" value="Intermediate Rigging" 
+             {% if form.tickets.hririg == "true" %}checked{% endif %}>
+            Intermediate Rigging</label>
+
+            <label><input id="ti29" type="checkbox" name="checkbox3[]" value="Advanced Rigging" 
+             {% if form.tickets.hrarig == "true" %}checked{% endif %}>
+            Advanced Rigging</label>
+
+            <label><input id="ti30" type="checkbox" name="checkbox3[]" value="Basic Scaffolding" 
+             {% if form.tickets.hrbsca == "true" %}checked{% endif %}>
+            Basic Scaffolding</label>
+
+            <label><input id="ti31" type="checkbox" name="checkbox3[]" value="Intermediate Scaffolding" 
+             {% if form.tickets.hrisca == "true" %}checked{% endif %}>
+            Intermediate Scaffolding</label>
+
+            <label><input id="ti32" type="checkbox" name="checkbox3[]" value="Advanced Scaffolding" 
+             {% if form.tickets.hrasca == "true" %}checked{% endif %}>
+            Advanced Scaffolding</label>
+
+            <label><input id="ti33" type="checkbox" name="checkbox3[]" value="Vehicle Loading Crane (CV) over 10m Ton" 
+             {% if form.tickets.hrvlc == "true" %}checked{% endif %}>
+            Vehicle Loading Crane (CV) over 10m Ton</label>
+
+            <label><input id="ti34" type="checkbox" name="checkbox3[]" value="Non-slewing Crane (CN)" 
+             {% if form.tickets.hrnsc == "true" %}checked{% endif %}>
+            Non-slewing Crane (CN)</label>
+
+            <label><input id="ti35" type="checkbox" name="checkbox3[]" value="Slewing Crane 20T (C2)" 
+             {% if form.tickets.hrsc20 == "true" %}checked{% endif %}>
+            Slewing Crane 20T (C2)</label>
+
+            <label><input id="ti36" type="checkbox" name="checkbox3[]" value="Slewing Crane 60T (C6)" 
+             {% if form.tickets.hrsc60 == "true" %}checked{% endif %}>
+            Slewing Crane 60T (C6)</label>
+
+            <label><input id="ti37" type="checkbox" name="checkbox3[]" value="Slewing Crane 100T (C1)" 
+             {% if form.tickets.hrsc100 == "true" %}checked{% endif %}>
+            Slewing Crane 100T (C1)</label>
+
+            <label><input id="ti38" type="checkbox" name="checkbox3[]" value="Slewing Crane 100T or More (C0)" 
+             {% if form.tickets.hrsc100p == "true" %}checked{% endif %}>
+            Slewing Crane 100T or More (C0)</label>
+
+            <label><input id="ti39" type="checkbox" name="checkbox3[]" value="Gantry Crane (CB or LBG)" 
+             {% if form.tickets.hrgcra == "true" %}checked{% endif %}>
+            Gantry Crane (CB or LBG)</label>
+
+            <label><input id="ti40" type="checkbox" name="checkbox3[]" value="Crane Awareness" 
+             {% if form.tickets.hrcrawe == "true" %}checked{% endif %}>
+            Crane Awareness</label>
+
+            <label><input id="ti41" type="checkbox" name="checkbox3[]" value="Verification of Competency (VOC)" 
+             {% if form.tickets.hrveri == "true" %}checked{% endif %}>
+            Verification of Competency (VOC)</label>
+
+            <label><input id="ti42" type="checkbox" name="checkbox3[]" value="Day Rate &amp; for (VOC)" 
+             {% if form.tickets.hrdrate == "true" %}checked{% endif %}>
+            Day Rate &amp; for (VOC)</label></div><span class="clearfix">
+        </div>
+    </div>
+
+
+
+<div class="pure-u-1 pure-u-md-1-2">
+        <div class="element-checkbox"><label class="title"><h2>Short Courses</h2></label>        <div class="column column1">
+
+        <label><input id="ti43" type="checkbox" name="checkbox4[]" value="Generic Induction GIQ Mines"
+        {% if form.tickets.scgi == "true" %}checked{% endif %}>
+        Generic Induction GIQ Mines</label>
+
+        <label><input id="ti44" type="checkbox" name="checkbox4[]" value="Generic Induction GIQ Mines Bridging"
+        {% if form.tickets.scgib == "true" %}checked{% endif %}>
+        Generic Induction GIQ Mines Bridging</label>
+
+        <label><input id="ti45" type="checkbox" name="checkbox4[]" value="Load Restraint"
+        {% if form.tickets.sclr == "true" %}checked{% endif %}>
+        Load Restraint</label>
+
+        <label><input id="ti46" type="checkbox" name="checkbox4[]" value="Fatigue Management (Drivers F10)"
+        {% if form.tickets.scfm == "true" %}checked{% endif %}>
+        Fatigue Management (Drivers F10)</label>
+
+        <label><input id="ti47" type="checkbox" name="checkbox4[]" value="Fatigue Management (Schedulers F63)"
+        {% if form.tickets.scfms == "true" %}checked{% endif %}>
+        Fatigue Management (Schedulers F63)</label>
+
+        <label><input id="ti48" type="checkbox" name="checkbox4[]" value="White Card"
+        {% if form.tickets.scwc == "true" %}checked{% endif %}>
+        White Card</label>
+
+        <label><input id="ti49" type="checkbox" name="checkbox4[]" value="Traffic Controller Lvl2"
+        {% if form.tickets.sctc == "true" %}checked{% endif %}>
+        Traffic Controller Lvl2</label>
+
+        <label><input id="ti50" type="checkbox" name="checkbox4[]" value="First Aid"
+        {% if form.tickets.scfa == "true" %}checked{% endif %}>
+        First Aid</label>
+
+        <label><input id="ti51" type="checkbox" name="checkbox4[]" value="First Aid Refresher"
+        {% if form.tickets.scfar == "true" %}checked{% endif %}>
+        First Aid Refresher</label>
+
+        <label><input id="ti52" type="checkbox" name="checkbox4[]" value="CPR"
+        {% if form.tickets.sccpr == "true" %}checked{% endif %}>
+        CPR</label>
+
+        <label><input id="ti53" type="checkbox" name="checkbox4[]" value="Low Voltage Rescue (LVR)"
+        {% if form.tickets.sclvr == "true" %}checked{% endif %}>
+        Low Voltage Rescue (LVR)</label>
+
+        <label><input id="ti54" type="checkbox" name="checkbox4[]" value="Work Safe at Heights"
+        {% if form.tickets.scwsh == "true" %}checked{% endif %}>
+        Work Safe at Heights</label>
+
+        <label><input id="ti55" type="checkbox" name="checkbox4[]" value="Work Safe at Heights Refresher"
+        {% if form.tickets.scwshr == "true" %}checked{% endif %}>
+        Work Safe at Heights Refresher</label>
+
+        <label><input id="ti56" type="checkbox" name="checkbox4[]" value="Confined Space (entry)"
+        {% if form.tickets.sccse == "true" %}checked{% endif %}>
+        Confined Space (entry)</label>
+
+        <label><input id="ti57" type="checkbox" name="checkbox4[]" value="Confined Space (BA)"
+        {% if form.tickets.sccsb == "true" %}checked{% endif %}>
+        Confined Space (BA)</label>
+
+        <label><input id="ti58" type="checkbox" name="checkbox4[]" value="Confined Space Refresher"
+        {% if form.tickets.sccsr == "true" %}checked{% endif %}>
+        Confined Space Refresher</label>
+
+        <label><input id="ti59" type="checkbox" name="checkbox4[]" value="Chain of Responsibiility (COR)"
+        {% if form.tickets.sccor == "true" %}checked{% endif %}>
+        Chain of Responsibiility (COR)</label>
+
+        <label><input id="ti60" type="checkbox" name="checkbox4[]" value="Cert IV OH&amp;S"
+        {% if form.tickets.scohs == "true" %}checked{% endif %}>
+        Cert IV OH&amp;S</label>
+
+        <label><input id="ti61" type="checkbox" name="checkbox4[]" value="Cert IV OH&amp;S and WPH&amp;S Rep"
+        {% if form.tickets.scohswph == "true" %}checked{% endif %}>
+        Cert IV OH&amp;S and WPH&amp;S Rep</label>
+
+        <label><input id="ti62" type="checkbox" name="checkbox4[]" value="WPH&amp;S Rep Course"
+        {% if form.tickets.scwphrep == "true" %}checked{% endif %}>
+        WPH&amp;S Rep Course</label>
+
+        <label><input id="ti63" type="checkbox" name="checkbox4[]" value="4Wheel Drive Training"
+        {% if form.tickets.sc4whl == "true" %}checked{% endif %}>
+        4Wheel Drive Training</label>
+
+        </div><span class="clearfix"></span>
+        </div>
+    </div>
+
+</div>
+    <button id="save" type="button" class="pure-button pure-button-primary" style="float:right; padding: 1em; margin: 1em 0 1em 1em; text-transform: uppercase;"><i class="fa fa-check  "></i> Apply changes</button>
+</fieldset>
+</form>
+</div>     
+</section>   
+
+
+
+
+
+<section id="success" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading" id="heading"><i class="fa fa-check"></i> SUCCESS</h2>
+
+
+                <p>Your information has been updated!<br> Now prospective employers will be able to find you based on your information. Be sure to keep this information up to date. Add training to increase your chances of finding employment.  <a href="/form">back</a> or <a href="/">continue</a> </p>             
+
+                
+            </div>
+        </div>
+
+        </div>
+</section>
+
+
+
+
+ <script>
+    
+    $(document).ready(function(){
+        console.log("test");    
+        
+        //SIGNUP
+        var formdata = {};
+
+        $("#save").click(function(){
+          
+
+          formdata.firstname=$("#firstname").val();
+          formdata.lastname=$("#lastname").val();
+          formdata.location=$("#location").val();
+          formdata.experience=$('input[name=experience]:checked', '#experience').val()
+          
+          formdata.equipment = {};
+          formdata.equipment.frontendloader = $('#eq1').prop('checked');
+          formdata.equipment.excavator = $('#eq2').prop('checked');
+          formdata.equipment.skidsteerloader = $('#eq3').prop('checked');
+          formdata.equipment.backhoeloader = $('#eq4').prop('checked');
+
+
+          formdata.tickets = {};
+          //heavy vehicles
+          formdata.tickets.hvmr     = $('#ti1').prop('checked');
+          formdata.tickets.hv1dmrc  = $('#ti2').prop('checked');
+          formdata.tickets.hvhr     = $('#ti3').prop('checked');
+          formdata.tickets.hvhc     = $('#ti4').prop('checked');
+          formdata.tickets.hvmchc   = $('#ti5').prop('checked');
+          formdata.tickets.hvhcmc   = $('#ti6').prop('checked');
+          formdata.tickets.hvmcass  = $('#ti7').prop('checked');
+          formdata.tickets.hvpea    = $('#ti8').prop('checked');
+          formdata.tickets.hvqtbf   = $('#ti9').prop('checked');
+
+          //loadshifting
+          formdata.tickets.lsroll   = $('#ti10').prop('checked');
+          formdata.tickets.lsskid   = $('#ti11').prop('checked');
+          formdata.tickets.lsbull   = $('#ti12').prop('checked');
+          formdata.tickets.lsback   = $('#ti13').prop('checked');
+          formdata.tickets.lsfrnt   = $('#ti14').prop('checked');
+          formdata.tickets.lsexca   = $('#ti15').prop('checked');
+          formdata.tickets.lsgrad   = $('#ti16').prop('checked');
+          formdata.tickets.lsdump   = $('#ti17').prop('checked');
+          formdata.tickets.lsvoc    = $('#ti18').prop('checked');
+          formdata.tickets.lsvocd   = $('#ti19').prop('checked');
+          formdata.tickets.lsrii    = $('#ti20').prop('checked');
+
+          //highrisk
+          formdata.tickets.hrfork   = $('#ti21').prop('checked');
+          formdata.tickets.hrorder  = $('#ti22').prop('checked');
+          formdata.tickets.hrforkl  = $('#ti23').prop('checked');
+          formdata.tickets.hrewp    = $('#ti24').prop('checked');
+          formdata.tickets.hrsc     = $('#ti25').prop('checked');
+          formdata.tickets.hrdog    = $('#ti26').prop('checked');
+          formdata.tickets.hrbrig   = $('#ti27').prop('checked');
+          formdata.tickets.hririg   = $('#ti28').prop('checked');
+          formdata.tickets.hrarig   = $('#ti29').prop('checked');
+          formdata.tickets.hrbsca   = $('#ti30').prop('checked');
+          formdata.tickets.hrisca   = $('#ti31').prop('checked');
+          formdata.tickets.hrasca   = $('#ti32').prop('checked');
+          formdata.tickets.hrvlc    = $('#ti33').prop('checked');
+          formdata.tickets.hrnsc    = $('#ti34').prop('checked');
+          formdata.tickets.hrsc20   = $('#ti35').prop('checked');
+          formdata.tickets.hrsc60   = $('#ti36').prop('checked');
+          formdata.tickets.hrsc100   = $('#ti37').prop('checked');
+          formdata.tickets.hrsc100p  = $('#ti38').prop('checked');
+          formdata.tickets.hrgcra    = $('#ti39').prop('checked');
+          formdata.tickets.hrcrawe   = $('#ti40').prop('checked');
+          formdata.tickets.hrveri    = $('#ti41').prop('checked');
+          formdata.tickets.hrdrate   = $('#ti42').prop('checked');
+
+          //shortcourses
+          formdata.tickets.scgi     = $('#ti43').prop('checked');
+          formdata.tickets.scgib    = $('#ti44').prop('checked');
+          formdata.tickets.sclr     = $('#ti45').prop('checked');
+          formdata.tickets.scfm     = $('#ti46').prop('checked');
+          formdata.tickets.scfms    = $('#ti47').prop('checked');
+          formdata.tickets.scwc     = $('#ti48').prop('checked');
+          formdata.tickets.sctc     = $('#ti49').prop('checked');
+          formdata.tickets.scfa     = $('#ti50').prop('checked');
+          formdata.tickets.scfar    = $('#ti51').prop('checked');
+          formdata.tickets.sccpr    = $('#ti52').prop('checked');
+          formdata.tickets.sclvr    = $('#ti53').prop('checked');
+          formdata.tickets.scwsh    = $('#ti54').prop('checked');
+          formdata.tickets.scwshr   = $('#ti55').prop('checked');
+          formdata.tickets.sccse    = $('#ti56').prop('checked');
+          formdata.tickets.sccsb    = $('#ti57').prop('checked');
+          formdata.tickets.sccsr    = $('#ti58').prop('checked');
+          formdata.tickets.sccor    = $('#ti59').prop('checked');
+          formdata.tickets.scohs    = $('#ti60').prop('checked');
+          formdata.tickets.scohswph  = $('#ti61').prop('checked');
+          formdata.tickets.scwphrep  = $('#ti62').prop('checked');
+          formdata.tickets.sc4whl    = $('#ti63').prop('checked');
+
+        console.log(formdata)
+         
+          $.post("/form", formdata, function(data){
+            console.log("POST");
+
+
+            if(data==='success')
+              {
+                $("#form").hide();
+                $("#success").show();
+
+              }
+
+
+          });
+            
+        });
+        //SIGNUP END
+    });
+</script>
+
+    <!-- jQuery -->
+    
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+    <!-- Custom Theme JavaScript -->
+
+    
+ <script>
+
+
+        $('.slider').slider();
+
+        $(document).ready(function(){
+
+          $(".navbar-toggle").click(function() {
+            console.log("click!")
+          })
+     });
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{
+  "name": "handshake",
+  "version": "1.0.0",
+  "description": "nodejs app",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.12.0",
+    "compression": "^1.1.2",
+    "cookie-parser": "^1.1.0",
+    "cookie-session": "^1.0.2",
+    "express": "^4.12.0",
+    "less": "^2.4.0",
+    "mailparser": "^0.4.6",
+    "marked": "^0.3.3",
+    "mongojs": "^0.13.0",
+    "multer": "^0.1.8",
+    "reload": "^0.1.0",
+    "serve-favicon": "^2.0.1",
+    "serve-static": "^1.2.3",
+    "socket.io": "^1.0.6",
+    "swig": "^1.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fluentart/handshake"
+  },
+  "keywords": [
+    "handshake"
+  ],
+  "author": "Rouan van der Ende <rouan@8bo.org> (http://bitlab.io)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fluentart/handshake/issues"
+  },
+  "homepage": "https://github.com/fluentart/handshake"
+}
