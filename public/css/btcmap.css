@@ -1,5 +1,18 @@
+
+
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,600,700,900);
+
+.markerselect {
+	padding: 1em;
+	border-radius: 1em;
+}
+
+.markerselect:hover {
+	background: rgb(55,55,55);
+	cursor: pointer;
+	color: #fff;
+}
 
 iframe { width: 100%;}
 
@@ -24,7 +37,7 @@ iframe { width: 100%;}
     font-family: 'Lato', sans-serif;
 } 
 body { 
-	background: #fff; 
+	background: #000; 
 	color: #333;
 }
 
@@ -289,7 +302,7 @@ bold {
 	height: 40px;
 	line-height: 40px;
 	cursor: pointer;
-	background: rgba(0,0,0,0.25);
+	background: rgba(0,0,0,0.5);
 	-webkit-transition: all .1s ease-in-out;
 	   -moz-transition: all .1s ease-in-out;
 		-ms-transition: all .1s ease-in-out;
@@ -299,7 +312,7 @@ bold {
 
 #menuToggle:hover {
 	color: #ffffff;
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.75);
 	-webkit-transition: all .1s ease-in-out;
 	   -moz-transition: all .1s ease-in-out;
 		-ms-transition: all .1s ease-in-out;

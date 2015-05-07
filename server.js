@@ -51,7 +51,22 @@ if (config.email) {
 // DATABASE
 var mongojs = require("mongojs");
 var databaseUrl = "bitlab"; 
-var collections = ["posts","users","roles","roles_users","permissions","permissions_users","permissions_roles","settings","tags","posts_tags","permissions_apps","apps","app_settings","app_fields"];
+var collections = ["posts",
+					"users",
+					"roles",
+					"roles_users",
+					"permissions",
+					"permissions_users",
+					"permissions_roles",
+					"settings",
+					"tags",
+					"posts_tags",
+					"permissions_apps",
+					"apps",
+					"app_settings",
+					"app_fields",
+					"mapnodes"
+					];
 
 var db = mongojs.connect(databaseUrl, collections);
 
@@ -443,6 +458,9 @@ app.get('/:slug', function (req,res,next) {
 
 
 //////////////////////////////////////////////////
+
+
+
 /*
 app.get('/test', function (req, res) {
 	//import json from ghost blog system.
@@ -569,6 +587,65 @@ app.get('/btcmap', function (req, res)
 {
 	res.render('btcmap', { });
 });
+
+app.post('/btcmap/api/getnodes', function(req, res) {
+	console.log("api getnodes")
+	console.log(req.body);
+	db.mapnodes.find( { "$and" : [ 
+		{"lat" : { "$gte": parseFloat(req.body.lat[0]) }}, 
+		{"lat" : { "$lte": parseFloat(req.body.lat[1]) }},
+		{"lon" : { "$gte": parseFloat(req.body.lng[0]) }}, 
+		{"lon" : { "$lte": parseFloat(req.body.lng[1]) }}
+		] }, function (err, results) {
+			res.json(results);
+	});
+	
+})
+
+app.post('/btcmap/api/addnode', function(req, res) {
+	console.log("api addnode")
+	req.body.timeadded = Date.now();
+	req.body.lat = parseFloat(req.body.lat);
+	req.body.lon = parseFloat(req.body.lon);
+	console.log(req.body);
+	db.mapnodes.save(req.body, function (err, result) {
+		res.json({"result":"success"});	
+	});
+	
+})
+
+/* disabled after use. 
+app.get('/osmdata', function (req, res) {
+	//import coinmap info. run once.
+	//data from http://overpass.osm.rambler.ru/cgi/interpreter?data=[out:json];(node[%22payment:bitcoin%22=yes];way[%22payment:bitcoin%22=yes];%3E;);out;
+	
+	var fs = require('fs');
+	fs.readFile( __dirname + '/osm_btc.json', function (err, data) {
+	  if (err) {
+	    throw err;
+	  }
+
+	  var indata 	 = data.toString();
+	  var indatajson = JSON.parse(indata);
+	  var c = 0;
+	  for (var i in indatajson.elements) 
+	  {
+	  	if (indatajson.elements[i].tags) 
+	  	{
+	  		if (indatajson.elements[i].tags["payment:bitcoin"]) 
+	  		{
+	  			if (indatajson.elements[i].type == "node") {
+	  				c++;
+	  				db.mapnodes.save(indatajson.elements[i]);
+	  			}
+
+	  		}
+	  	}
+	  }
+	  console.log("imported!"+c);
+	});
+})
+ */
 
 ///////////////////////////////////////////////////////////
 

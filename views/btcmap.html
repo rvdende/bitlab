@@ -27,21 +27,35 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-    #map { height: 100%; }
+      #map { height: 100%; background: rgb(0,0,0);}
+
+      .leaflet-tile-pane 
+      {
+        opacity: 0.9;
+      }
+
     </style>
   </head>
 
   <body data-spy="scroll" data-offset="0" data-target="#theMenu" class="">
+
+ 
+    <div id="menuMarkerAdd" style="position: fixed; z-index: 20; margin-left: 4em; margin-top: 2em; padding: 2em; max-width: 500px; background: rgb(40,40,40); color: #7f7f7f; display: none;"> 
+      <h3 style="color: #fff;">Choose</h3><br>
+      <div id="markerAddExchange" class="markerselect"><img src="/assets/marker-exchange-2x.png" style="padding-right: 1em; width: 40px;"> FIAT EXCHANGE</div>
+      <div id="markerAddVendor" class="markerselect"><img src="/assets/marker-bitcoin-2x.png" style="padding-right: 1em; width: 40px;"> VENDOR</div>
+      <div id="markerAddRequest" class="markerselect"><img src="/assets/marker-quest-2x.png" style="padding-right: 1em; width: 40px;"> REQUEST</div>
+    </div>
+
 
     <!-- Menu -->
     <nav class="menu" id="theMenu">
         <div class="menu-wrap">
             <h1 class="logo"><a href="http://bitlab.io/btcmap">BTCMAP</a></h1>
             <i class="fa fa-times menu-close"></i>
-            <a href="#todo" class="smoothScroll"><i class="fa fa-map-marker"></i> ADD</a>
-            <a href="#todo" class="smoothScroll"><i class="fa fa-search"></i> SEARCH</a>
+            <a href="#todo" class="smoothScroll" id="addMarker"><i class="fa fa-map-marker"></i> ADD</a>
 
-            <a href="https://github.com/fluentart/bitlab/blob/master/views/btcmap.html" class="smoothScroll"><i class="fa fa-search"></i><i class="fa fa-github"></i> GITHUB</a>
+            <a href="https://github.com/fluentart/bitlab/blob/master/views/btcmap.html" class="smoothScroll"><i class="fa fa-github"></i></a>
             
         </div>
 
@@ -52,29 +66,121 @@
  <div id="map"></div>
 
 
+
+
     <!-- Placed at the end of the document so the pages load faster -->
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="/assets/main.js"></script>
 
 <script>
 // create a map in the "map" div, set the view to a given place and zoom
 var map = L.map('map').setView([0, 0], 15);
 // add an OpenStreetMap tile layer
+
+var mapnodes = [];
+
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '<a href="http://osm.org/copyright">osm</a>'
 }).addTo(map);
+
+map.on('click', function(e) {
+    //console.log(e.latlng);
+    loadnodes();
+});
+
+
+map.on('moveend', function(e) {
+  loadnodes();
+})
+
 // add a marker in the given location, attach some popup content to it and open the popup
 var userMarker = L.marker([0, 0]).addTo(map)
-    .bindPopup('This is you.')
+    .bindPopup('Finding location...')
     .openPopup();
+
+var loadnodes = function () {
+  console.log("loading nodes")
+  var b = map.getBounds();
+  var n = {}
+  n.lng = [b._southWest.lng, b._northEast.lng];
+  n.lat = [b._southWest.lat, b._northEast.lat];
+  $.post( "/btcmap/api/getnodes", n , function( data ) {
+    updateMapnodes( data );
+  }, "json");
+
+
+}
+
+var iconRequest = L.icon({
+    iconUrl: '/assets/marker-quest-2x.png',
+    shadowUrl: '/assets/marker-shadow.png',
+    iconSize:     [25, 41], // size of the icon
+    shadowSize:   [41, 41], // size of the shadow
+    iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
+    shadowAnchor: [14, 40],  // the same for the shadow
+    popupAnchor:  [0, -35] // point from which the popup should open relative to the iconAnchor
+});
+
+var iconExchange = L.icon({
+    iconUrl: '/assets/marker-exchange-2x.png',
+    shadowUrl: '/assets/marker-shadow.png',
+    iconSize:     [25, 41], // size of the icon
+    shadowSize:   [41, 41], // size of the shadow
+    iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
+    shadowAnchor: [14, 40],  // the same for the shadow
+    popupAnchor:  [0, -35] // point from which the popup should open relative to the iconAnchor
+});
+
+var iconVendor = L.icon({
+    iconUrl: '/assets/marker-bitcoin-2x.png',
+    shadowUrl: '/assets/marker-shadow.png',
+    iconSize:     [25, 41], // size of the icon
+    shadowSize:   [41, 41], // size of the shadow
+    iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
+    shadowAnchor: [14, 40],  // the same for the shadow
+    popupAnchor:  [0, -35] // point from which the popup should open relative to the iconAnchor
+});
+
+
+var updateMapnodes = function (nodes) {
+
+  for (var m in mapnodes) {
+    map.removeLayer(mapnodes[m]);
+  }
+
+  for (var n in nodes) 
+  {
+    console.log(nodes[n]);
+    if (nodes[n].tags.website != undefined) {
+      var nodeInfo = nodes[n].tags.name + "</br>";
+      if (nodes[n].tags.phone != undefined) { nodeInfo += nodes[n].tags.phone + "</br>"; }
+      nodeInfo += '<a href="'+nodes[n].tags.website+'">website</a>';
+
+      var markerOptions = {}
+
+      if (nodes[n].type == "exchange") {
+        markerOptions.icon = iconExchange;
+      }
+      if (nodes[n].type == "vendor") {
+        markerOptions.icon = iconVendor;
+      }      
+      if (nodes[n].type == "request") {
+        markerOptions.icon = iconRequest;
+      }    
+      var mapMarker = L.marker([nodes[n].lat, nodes[n].lon], markerOptions).addTo(map)
+      .bindPopup(nodeInfo);
+      mapnodes.push(mapMarker); //to keep track of them
+    }
+
+  }
+
+}
 
 var resize = function () {
   var h = $( window ).height();
-  console.log(h);
   $('#map').css('height', h); 
 }
 
@@ -82,19 +188,23 @@ var getLocation = function () {
     if (navigator.geolocation) {
         //navigator.geolocation.getCurrentPosition(showPosition);
         navigator.geolocation.watchPosition(updatePosition);
-
     } else {
         console.log("Geolocation is not supported by this browser.");
     }
 }
 
+var gpspos = [0,0];
+
 function updatePosition(position) {
   console.log(position);
-  var latlng = [position.coords.latitude, position.coords.longitude]
+  var latlng = [position.coords.latitude, position.coords.longitude];
+  gpspos = latlng;
   map.setView( latlng );
-  userMarker.setLatLng(latlng);
-    /*x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude; */
+  
+
+  userMarker.setLatLng(latlng).setPopupContent('This is you!<br> Have a look around, zoom out if you need to look further!<br>You can add markers using the menu top right!');
+
+
 }
 
 resize();
@@ -103,9 +213,85 @@ $( window ).resize(function() {
   resize();
 });
 
+
+
 $( document ).ready(function() {
    resize();
    getLocation();
+
+      $('#menuToggle, .menu-close').on('click', function(){
+        $("#menuMarkerAdd").fadeOut();
+        $('#menuToggle').toggleClass('active');
+        $('body').toggleClass('body-push-toleft');
+        $('#theMenu').toggleClass('menu-open');
+      });   
+
+   $("#addMarker").click(function () {
+      $("#menuMarkerAdd").fadeIn();
+        $('#menuToggle').toggleClass('active');
+        $('body').toggleClass('body-push-toleft');
+        $('#theMenu').toggleClass('menu-open');      
+   });
+
+   $("#markerAddExchange").click( function () {
+      $("#menuMarkerAdd").fadeOut();
+ 
+      var node = {
+        "type" : "exchange",
+        "lat" : parseFloat(gpspos[0]),
+        "lon" : parseFloat(gpspos[1]),
+        "tags" : {
+          "name" : "reddit beta point",
+          "website" : "http://www.reddit.com/r/Bitcoin/comments/352qcb/idea_for_bitcoin_app_i_want_to_swing_past_you/"
+
+          }
+        }
+
+        $.post( "/btcmap/api/addnode", node , function( data ) {
+          console.log( data ); loadnodes();
+        }, "json");
+   });
+
+   $("#markerAddVendor").click( function () {
+      $("#menuMarkerAdd").fadeOut();
+ 
+      var node = {
+        "type" : "vendor",
+        "lat" : parseFloat(gpspos[0]),
+        "lon" : parseFloat(gpspos[1]),
+        "tags" : {
+          "name" : "reddit beta point",
+          "website" : "http://www.reddit.com/r/Bitcoin/comments/352qcb/idea_for_bitcoin_app_i_want_to_swing_past_you/"
+
+          }
+        }
+
+        $.post( "/btcmap/api/addnode", node , function( data ) {
+          console.log( data ); loadnodes();
+        }, "json");
+   });
+
+   $("#markerAddRequest").click( function () {
+      $("#menuMarkerAdd").fadeOut();
+ 
+      var node = {
+        "type" : "request",
+        "lat" : parseFloat(gpspos[0]),
+        "lon" : parseFloat(gpspos[1]),
+        "tags" : {
+          "name" : "reddit beta point",
+          "website" : "http://www.reddit.com/r/Bitcoin/comments/352qcb/idea_for_bitcoin_app_i_want_to_swing_past_you/"
+
+          }
+        }
+
+        $.post( "/btcmap/api/addnode", node , function( data ) {
+          console.log( data ); loadnodes();
+        }, "json");
+   });   
+
+    
+
 });
 
 

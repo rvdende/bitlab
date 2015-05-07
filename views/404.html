@@ -83,6 +83,15 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="/assets/main.js"></script>
-
+<script>
+  $( document ).ready(function() 
+  {
+    $('#menuToggle, .menu-close').on('click', function()
+    {
+      $('#menuToggle').toggleClass('active');
+      $('body').toggleClass('body-push-toleft');
+      $('#theMenu').toggleClass('menu-open');
+    });   
+  });
+</script>
 </body></html>
