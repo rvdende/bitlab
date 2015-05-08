@@ -160,7 +160,8 @@ var updateMapnodes = function (nodes) {
       nodeInfo += '<a href="'+nodes[n].tags.website+'">website</a>';
 
       var markerOptions = {}
-
+      markerOptions.icon = iconVendor;
+      
       if (nodes[n].type == "exchange") {
         markerOptions.icon = iconExchange;
       }
