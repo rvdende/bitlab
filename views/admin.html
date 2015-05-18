@@ -24,30 +24,9 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-      #adminmenu {
-
-        margin-top: 1.15em;
-        margin-left: 1.15em;
-      }
-      #edit {
-        color: #ccc;
-        cursor: pointer;
-      }
-      #edit:hover {
-        color: #999;
-      }
-    </style>
-
   </head>
 
   <body data-spy="scroll" data-offset="0" data-target="#theMenu" class="">
-
-      {% if user.admin == true %}
-      <div style="position: absolute;">
-          <div id="adminmenu"><span id="edit"><a href="/admin/editor"><i class="fa fa-plus"></i></a></span></div>
-      </div><!--/row-->
-      {% endif %}
 
     <!-- Menu -->
     <nav class="menu" id="theMenu">
@@ -56,10 +35,6 @@
             <i class="fa fa-times menu-close"></i>
             <a href="http://bitlab.io/" class="smoothScroll">HOME</a>
             <a href="http://bitlab.io/contact" class="smoothScroll">CONTACT</a>
-
-            {% if user %} <a href="/signout" >SIGNOUT</a> 
-            {% else %} <a href="/signin" >SIGNIN</a> 
-            {% endif %}
 
             <a href="https://www.behance.net/rouan"><i class="fa fa-behance"></i></a>
             <a href="https://www.reddit.com/user/rende"><i class="fa fa-reddit"></i></a>
@@ -72,18 +47,12 @@
     </nav>
 
     <div class="container" style="padding-bottom: 3em;">
-      <div class="row">
-        <div style="margin-top: 12em; margin-bottom: 12em;">
-          <center><h1 class="mainlogo">bitlab.io</h1>
-            <h3 style="margin-top: 0; color: #aaa;">opensource. bitcoin. robotics.</h3>
-          </center>
-        </div>
-      </div><!--/row-->
+      <a href="/admin/blog">blog</a>
 
 
 {% for post in posts %}
     {% if loop.first %}
-      <div class="row desc postholder" >
+      <div class="row desc" >
         <div class="col-sm-8 col-sm-offset-2 ">
             <h1><a href="/{{ post.slug }}" style="text-transform: uppercase;">{{ post.title }}</a></h1>
      
@@ -99,33 +68,9 @@
     </div><!-- /.container -->
 
 
-<div style="background: rgb(33,33,33); width:100%; padding-top: 3em; padding-bottom: 3em;" >
-    <div class="container" >
-          <div class="row">
-            <div class="col-md-8 col-sm-offset-2">
-                    {% for post in posts %}
-                        {% if !loop.first %}
 
-                            <p  style="font-size: 1.0em; margin: 0; padding-top: 0; color: #aaa;"><a href="/{{ post.slug }}">{{ post.title }}</a> {{ post.formatteddate }}</p>
 
-                        {% endif %}
-                    {% endfor %}
-            </div>
-          </div><!--/row-->
-    </div>
-</div>
 
-<div id="contactwrap" style="padding-top: 3em; background: rgb(42,42,42);">
-  <div class="container">
-    <div class="row centered">
-        <a href="bitcoin:1EZ6S8YqfxzfMKCCtpzKeEJW1qMthQnCuD?message=bitlab" target="_blank">
-          <img src="/assets/wallet.png" height="101px">
-          <br><br><span style="font-size: 1em; color: #eee; ">1EZ6S8YqfxzfMKCCtpzKeEJW1qMthQnCuD</span><br>
-        </a>
-        <a href="http://bitx.co/" target="_blank"><img src="/assets/BC_Logo_-sml.png" width="32" height="32" style="margin-top: 2em; margin-bottom: 5em;"></a> 
-    </div>
-  </div><!-- /container -->
-</div>
 
     <!-- Placed at the end of the document so the pages load faster -->
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>

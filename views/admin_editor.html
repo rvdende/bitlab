@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Editor</title>
+
+
+
+    <link rel="stylesheet" href="/css/bitlab.css">
+    <style>
+        body { background: rgb(30,30,30); color: #ccc; padding: 5em 1.25em; }
+        #heading { margin-bottom: 3em; }
+        input { padding: 1em; }
+        textarea { padding: 1em; resize: vertical;}
+        fieldset { border: none;}
+        button { padding: 1.2em; border: none;}
+        button:hover { background: rgb(0,175,125); cursor: pointer; }
+    </style>
+
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    
+</head>
+
+  <body>
+
+    <!-- Menu -->
+    <nav class="menu" id="theMenu">
+        <div class="menu-wrap">
+            <h1 class="logo"><a href="http://bitlab.io/">BITLAB.io</a></h1>
+            <i class="fa fa-times menu-close"></i>
+            <a href="http://bitlab.io/" class="smoothScroll">HOME</a>
+            <a href="http://bitlab.io/contact" class="smoothScroll">CONTACT</a>
+
+            <a href="https://www.behance.net/rouan"><i class="fa fa-behance"></i></a>
+            <a href="https://www.reddit.com/user/rende"><i class="fa fa-reddit"></i></a>
+            <a href="mailto:rouan@8bo.org"><i class="fa fa-envelope"></i></a>
+      <a href="https://www.facebook.com/rouan.za"><i class="fa fa-facebook"></i></a>
+        </div>
+
+        <!-- Menu button -->
+        <div id="menuToggle" class=""><i class="fa fa-bars"></i></div>
+    </nav>
+
+    <div class="container" style="padding-bottom: 3em;">
+      <input id="post_title" type="text" placeholder="title" style='width:100%;'><br><br>
+      <textarea id="post_markdown" style="width:100%;" rows="15" placeholder="markdown"></textarea>
+      <button id="publish" class="submit pure-button pure-button-primary" style="margin-top: 1em;">Publish</button>
+    </div><!-- /.container -->
+
+    <link rel="stylesheet" href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.min.css">
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script>
+  $( document ).ready(function() 
+  {
+
+    $("#publish").click(function(){
+      console.log("clicked");
+      doPublish();
+    });
+
+    $('#menuToggle, .menu-close').on('click', function()
+    {
+      $('#menuToggle').toggleClass('active');
+      $('body').toggleClass('body-push-toleft');
+      $('#theMenu').toggleClass('menu-open');
+    });   
+  });
+
+var doPublish = function () {
+  var post = {}
+  post.title = $("#post_title").val();
+  post.markdown = $("#post_markdown").val();
+  console.log(post);
+
+  $.post("/admin/editor", post, function (reply) 
+  {
+    console.log(reply);
+  });
+}
+
+</script>
+</body></html>

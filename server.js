@@ -3,7 +3,8 @@ var config = {
 	email : false,		//enable for email send/recieve
 	port: 80,
 	domain: "bitlab.io",
-	sitename: "bitlab.io"
+	sitename: "bitlab.io",
+	adminemail: "rouan@8bo.org"
 }
 
 if (config.production == false) {
@@ -18,7 +19,7 @@ if (process.env.NODE_ENV == "production") {
 	console.log("\nSTARTING in DEVELOPMENT mode. Use for production:\n\tsudo NODE_ENV=production nodemon server\n\n"); }
 
 
-
+var marked = require('marked');
 var express = require('express')
   , http = require('http')
   , path = require('path')
@@ -344,8 +345,35 @@ function newToOld(a,b) {
   return 0;
 }
 
-app.get('/', function (req, res) {
-  	console.log(req.session);
+var getuser = function(req,res,callback) {
+	var cookieuser = {email: req.session.email, secpass: req.session.secpass};
+	db.users.findOne( cookieuser, function (err, resp) {
+		callback(resp);
+	});
+}
+
+app.get('/', function (req, res) 
+{
+  
+	//load posts
+	db.posts.find({"status":"published", "page": 0}, function (errp, posts) 
+	{
+		posts.sort(newToOld);
+		
+		for (var b in posts) {
+			posts[b].html = marked(posts[b].markdown);
+			var d = new Date(posts[b].published_at);
+			posts[b].formatteddate = d.getFullYear() + "." + (d.getMonth()+1) + "." + d.getDate();
+		}
+		
+
+		getuser(req,res, function (user) {
+			res.render('home', {posts:posts, user:user})
+		})
+	})
+	//load posts end
+
+	/*
 
 	var cookieuser = {email: req.session.email, secpass: req.session.secpass};
 
@@ -354,39 +382,21 @@ app.get('/', function (req, res) {
 		if (resp) {
 			if (resp.length == 0) {
 				console.log("user not found. main");
-				//load posts
-				db.posts.find({"status":"published", "page": 0}, function (errp, posts) {
 
-					posts.sort(newToOld);
-
-					var marked = require('marked');
-
-
-
-					for (var b in posts) {
-						posts[b].html = marked(posts[b].markdown);
-
-						var d = new Date(posts[b].published_at);
-						posts[b].formatteddate = d.getFullYear() + "." + (d.getMonth()+1) + "." + d.getDate();
-					}
-
-					res.render('home', {posts:posts})
-				})
-				//load posts end
 
 			}
 			if (resp.length > 0) {
 				console.log("user found!")
 
 				if (resp[0].verified) {
-					res.render('app_home', { email: req.session.email })
+					res.render('home', { email: req.session.email })
 				} else {
 					if (config.email == true) {
 						console.log("MAIL ENABLED, ENFORCING VERIFICATION");
 						res.render('notverified', { email: req.session.email })
 					} else {
 						console.log("MAIL DISABLED, SKIPPING VERIFICATION");
-						res.render('app_home', { email: req.session.email })
+						res.render('home', { email: req.session.email })
 					}
 
 				}
@@ -397,6 +407,7 @@ app.get('/', function (req, res) {
 				res.render('home', {})
 		}
 	})
+*/
 
 })
 
@@ -447,7 +458,12 @@ app.get('/:slug', function (req,res,next) {
 								}
 							}
 
-							res.render('post', {post:post, tags:tags, relposts:relpostsClean})
+							post.html = marked(post.markdown);
+
+							getuser(req,res, function (user) {
+								res.render('post', {post:post, tags:tags, relposts:relpostsClean, user:user})
+							})
+							
 						});
 					});
 				});				
@@ -580,6 +596,7 @@ app.post('/search', function (req, res) {
 	})
 })
 
+
 ///////////////////////////////////////////////////////////
 // BTCMAP
 
@@ -646,6 +663,65 @@ app.get('/osmdata', function (req, res) {
 	});
 })
  */
+
+///////////////////////////////////////////////////////////
+// BLOG
+
+app.post('/api/removepost', function (req, res) {
+	getuser(req,res, function (user) {
+		console.log(req.body);
+		console.log(user);
+		db.posts.remove(req.body, 1);
+		res.json({"result":"success"});
+	})	
+})
+
+app.get('/admin/', function (req, res) {
+	res.render('admin', {});
+})
+
+app.get('/admin/editor', function (req, res) {
+	res.render('admin_editor', {});
+})
+
+app.post('/admin/editor', function (req, res) {
+	var post = req.body;
+	db.posts.find({}, function(err, posts) {
+		var lastid = 0;
+		for (var p in posts) {
+			if (posts[p].id > lastid) {
+				lastid = posts[p].id;
+
+			}
+		}
+		post.id = lastid+1;
+		post.status = "published";		
+		post.slug = post.title.toLowerCase().replace(/\s+/g, '-');
+		post.page = 0;
+		post.created_at = Date.now();
+		post.updates_at = Date.now();
+		post.published_at = Date.now();
+
+		console.log(post);
+
+		db.posts.save(post, function (err, dbreply) {
+			res.end("success");		
+		})
+	});
+	
+})
+
+/*
+app.get('/makeadmin', function (req,res){
+	//modifies the admin account to give admin rights.
+	db.users.findOne({"email":config.adminemail}, function (err, user) {
+		user.admin = true;
+		db.users.update({"email":config.adminemail}, user, function (err2, admin) {
+			res.end("done.")
+		})
+	})
+})
+*/
 
 ///////////////////////////////////////////////////////////
 

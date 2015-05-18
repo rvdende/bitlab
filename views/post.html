@@ -24,12 +24,37 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+      #edit {
+        margin-left: 1.15em;
+      }
+
+      #edit:hover {
+        color: #999;
+      }
+
+      .adminbuttons {
+        color: #ccc;
+        cursor: pointer;
+        font-size: 1em;
+        margin-left: 0.5em;
+      }
+
+      .remove:hover {
+        color: #c33;
+      }
+    </style>
   </head>
 
   <body data-spy="scroll" data-offset="0" data-target="#theMenu" class="">
 
       <div style="position: absolute;">
           <h1 class="mainlogo"><a href="http://bitlab.io/" style="color: #000; font-size: 0.75em; margin-left: 0.75em;">bitlab.io</a></h1>
+          <div>
+            <span id="edit" class="adminbuttons"><i class="fa fa-edit"></i></span>
+            <span class="adminbuttons remove"><i class="fa fa-remove"></i></span>
+           
+          </div>
       </div><!--/row-->
 
     <!-- Menu -->
@@ -39,6 +64,9 @@
             <i class="fa fa-times menu-close"></i>
             <a href="http://bitlab.io/#home" class="smoothScroll">HOME</a>
             <a href="http://bitlab.io/contact" class="smoothScroll">CONTACT</a>
+            {% if user %} <a href="/signout" >SIGNOUT</a> 
+            {% else %} <a href="/signin" >SIGNIN</a> 
+            {% endif %}
 
             <a href="https://www.behance.net/rouan"><i class="fa fa-behance"></i></a>
             <a href="https://www.reddit.com/user/rende"><i class="fa fa-reddit"></i></a>
@@ -119,6 +147,15 @@
       $('body').toggleClass('body-push-toleft');
       $('#theMenu').toggleClass('menu-open');
     });   
+
+    $('.remove').on('click', function() {
+      var post = {};
+      post.slug = window.location.href.toString().split(window.location.host)[1];
+      post.slug = post.slug.slice(1,999);
+      $.post( "/api/removepost", post , function( data ) {
+        console.log( data );
+      }, "json");
+    })
   });
 </script>
 </body></html>
