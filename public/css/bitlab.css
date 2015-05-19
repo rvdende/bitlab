@@ -118,16 +118,18 @@ a:focus {
 
 .desc h2 {
 	font-size: 24px;
-	font-weight: 300;
+	font-weight: 700;
 	line-height: 35px;
-	margin-bottom: 45px;
+	margin-bottom: 25px;
+	margin-top: 55px;
 }
 
 .desc h3 {
 	font-size: 20px;
-	font-weight: 300;
+	font-weight: 700;
 	line-height: 34px;
-	margin-bottom: 45px;
+	margin-bottom: 25px;
+	margin-top: 55px;	
 }
 
 .desc h4 {

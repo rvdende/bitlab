@@ -50,11 +50,13 @@
 
       <div style="position: absolute;">
           <h1 class="mainlogo"><a href="http://bitlab.io/" style="color: #000; font-size: 0.75em; margin-left: 0.75em;">bitlab.io</a></h1>
+
+          {% if user.admin == true %}
           <div>
             <span id="edit" class="adminbuttons"><i class="fa fa-edit"></i></span>
             <span class="adminbuttons remove"><i class="fa fa-remove"></i></span>
-           
           </div>
+          {% endif %}
       </div><!--/row-->
 
     <!-- Menu -->

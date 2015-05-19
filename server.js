@@ -1,7 +1,7 @@
 var config = {
 	production : true,	//enable for compression etc
 	email : false,		//enable for email send/recieve
-	port: 80,
+	port: 8000,
 	domain: "bitlab.io",
 	sitename: "bitlab.io",
 	adminemail: "rouan@8bo.org"
